@@ -1,0 +1,225 @@
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+name: Fabric
+version: "1.0"
+mutual-tls: false
+
+caliper:
+  blockchain: fabric
+
+
+info:
+  Version: 1.4.6
+  Size: 5 Orgs with 1 Peer
+  Orderer: Kafka,
+  Distribution: Single Host
+  StateDB: CouchDB
+
+clients:
+  client0.org1.example.com:
+    client:
+      organization: Org1
+      credentialStore:
+        path: /tmp/hfc-kvs/org1
+        cryptoStore:
+          path: /tmp/hfc-cvs/org1
+      clientPrivateKey:
+        path: config/crypto-config/peerOrganizations/peers1.svc.cluster.local/peers/peer1-hlf-peer.peers1.svc.cluster.local/msp/keystore/ecc91a5735b2814c04cd2ebf534e8fb97111d12f6784ab81af5f6bb2b7af918f_sk
+      clientSignedCert:
+        path: config/crypto-config/peerOrganizations/peers1.svc.cluster.local/peers/peer1-hlf-peer.peers1.svc.cluster.local/msp/signcerts/peer1-hlf-peer.peers1.svc.cluster.local-cert.pem
+
+  client0.org2.example.com:
+    client:
+      organization: Org2
+      credentialStore:
+        path: /tmp/hfc-kvs/org2
+        cryptoStore:
+          path: /tmp/hfc-cvs/org2
+      clientPrivateKey:
+        path: config/crypto-config/peerOrganizations/peers2.svc.cluster.local/peers/peer2-hlf-peer.peers2.svc.cluster.local/msp/keystore/0d4a243c598397960dd64a2424401c10def6c8afb1db4c8c328abf1e412a6fcf_sk
+      clientSignedCert:
+        path: config/crypto-config/peerOrganizations/peers2.svc.cluster.local/peers/peer2-hlf-peer.peers2.svc.cluster.local/msp/signcerts/peer2-hlf-peer.peers2.svc.cluster.local-cert.pem
+
+  client0.org3.example.com:
+    client:
+      organization: Org3
+      credentialStore:
+        path: /tmp/hfc-kvs/org3
+        cryptoStore:
+          path: /tmp/hfc-cvs/org3
+      clientPrivateKey:
+        path: config/crypto-config/peerOrganizations/peers3.svc.cluster.local/peers/peer3-hlf-peer.peers3.svc.cluster.local/msp/keystore/5b59e696193a0b17c1e2e7ac0a4235661fd63a0f2e359a70140d317d677e3f51_sk
+      clientSignedCert:
+        path: config/crypto-config/peerOrganizations/peers3.svc.cluster.local/peers/peer3-hlf-peer.peers3.svc.cluster.local/msp/signcerts/peer3-hlf-peer.peers3.svc.cluster.local-cert.pem
+
+  client0.org4.example.com:
+    client:
+      organization: Org4
+      credentialStore:
+        path: /tmp/hfc-kvs/org4
+        cryptoStore:
+          path: /tmp/hfc-cvs/org4
+      clientPrivateKey:
+        path: config/crypto-config/peerOrganizations/peers4.svc.cluster.local/peers/peer4-hlf-peer.peers4.svc.cluster.local/msp/keystore/d699c7044c7bed2721bf370625068a8b9d0296888826bc86a055a565d78a8252_sk
+      clientSignedCert:
+        path: config/crypto-config/peerOrganizations/peers4.svc.cluster.local/peers/peer4-hlf-peer.peers4.svc.cluster.local/msp/signcerts/peer4-hlf-peer.peers4.svc.cluster.local-cert.pem
+
+  client0.org5.example.com:
+    client:
+      organization: Org5
+      credentialStore:
+        path: /tmp/hfc-kvs/org5
+        cryptoStore:
+          path: /tmp/hfc-cvs/org5
+      clientPrivateKey:
+        path: config/crypto-config/peerOrganizations/peers5.svc.cluster.local/peers/peer5-hlf-peer.peers5.svc.cluster.local/msp/keystore/23d87ef6c48e675fb10054f1aedaa2690d6e0b7a29754e14b3ecffa34db78b5d_sk
+      clientSignedCert:
+        path: config/crypto-config/peerOrganizations/peers5.svc.cluster.local/peers/peer5-hlf-peer.peers5.svc.cluster.local/msp/signcerts/peer5-hlf-peer.peers5.svc.cluster.local-cert.pem
+
+channels:
+  mychannel:
+    configBinary: config/mychannel.tx
+    created: false
+    orderers:
+    - orderers1.svc.cluster.local
+    - orderers2.svc.cluster.local
+    - orderers3.svc.cluster.local
+    peers:
+      peers1.svc.cluster.local:
+        eventSource: true
+      peers2.svc.cluster.local:
+        eventSource: true
+      peers3.svc.cluster.local:
+        eventSource: true
+      peers4.svc.cluster.local:
+        eventSource: true
+      peers5.svc.cluster.local:
+        eventSource: true
+
+
+    chaincodes:
+    - id: marbles
+      version: v0
+      language: golang
+      path: fabric/samples/marbles/go
+      metadataPath: src/fabric/samples/marbles/go/metadata
+    - id: drm
+      version: v0
+      language: golang
+      path: fabric/scenario/drm/go
+    - id: simple
+      version: v0
+      language: golang
+      path: fabric/scenario/simple/go
+    - id: smallbank
+      version: v0
+      language: golang
+      path: fabric/scenario/smallbank/go
+
+organizations:
+  Org1:
+    mspid: Peer1MSP
+    peers:
+    - peer1-hlf-peer.peers.svc.cluster.local
+    adminPrivateKey:
+      path: config/crypto-config/peerOrganizations/peers1.svc.cluster.local/users/Admin@peers1.svc.cluster.local/msp/keystore/431df3272371dc4bc8af49f3a9945db23489b482dc3359c517d785592bb520ee_sk
+    signedCert:
+      path: config/crypto-config/peerOrganizations/peers1.svc.cluster.local/users/Admin@peers1.svc.cluster.local/msp/signcerts/Admin@peers1.svc.cluster.local-cert.pem
+
+  Org2:
+    mspid: Peer2MSP
+    peers:
+    - peer2-hlf-peer.peers.svc.cluster.local
+    adminPrivateKey:
+      path: config/crypto-config/peerOrganizations/peers2.svc.cluster.local/users/Admin@peers2.svc.cluster.local/msp/keystore/e2d087ac38d1ccf3370829538ade7245b76831b930c3d5074295a0b2bbe4b950_sk
+    signedCert:
+      path: config/crypto-config/peerOrganizations/peers2.svc.cluster.local/users/Admin@peers2.svc.cluster.local/msp/signcerts/Admin@peers2.svc.cluster.local-cert.pem
+
+  Org3:
+    mspid: Peer3MSP
+    peers:
+    - peer3-hlf-peer.peers.svc.cluster.local
+    adminPrivateKey:
+      path: config/crypto-config/peerOrganizations/peers3.svc.cluster.local/users/Admin@peers3.svc.cluster.local/msp/keystore/698ad3bf2419c3517e129332e83273862dc240e98ac654b96045441f5ffd865e_sk
+    signedCert:
+      path: config/crypto-config/peerOrganizations/peers3.svc.cluster.local/users/Admin@peers3.svc.cluster.local/msp/signcerts/Admin@peers3.svc.cluster.local-cert.pem
+
+  Org4:
+    mspid: Peer4MSP
+    peers:
+    - peer4-hlf-peer.peers.svc.cluster.local
+    adminPrivateKey:
+      path: config/crypto-config/peerOrganizations/peers4.svc.cluster.local/users/Admin@peers4.svc.cluster.local/msp/keystore/19fb25e5dff32da32327cb379edb7eafeda810a271b4800ae1cab2a44dfc1878_sk
+    signedCert:
+      path: config/crypto-config/peerOrganizations/peers4.svc.cluster.local/users/Admin@peers4.svc.cluster.local/msp/signcerts/Admin@peers4.svc.cluster.local-cert.pem
+
+  Org5:
+    mspid: Peer5MSP
+    peers:
+    - peer5-hlf-peer.peers.svc.cluster.local
+    adminPrivateKey:
+      path: config/crypto-config/peerOrganizations/peers5.svc.cluster.local/users/Admin@peers5.svc.cluster.local/msp/keystore/4238fe6f6e33fa466799ce66f385a30dc0719f3950802de35b29e76211d0d5d8_sk
+    signedCert:
+      path: config/crypto-config/peerOrganizations/peers5.svc.cluster.local/users/Admin@peers5.svc.cluster.local/msp/signcerts/Admin@peers5.svc.cluster.local-cert.pem
+
+orderers:
+  ord1-hlf-ord:
+    url: grpc://ord1-hlf-ord:7050
+    grpcOptions:
+      ssl-target-name-override: ord1-hlf-ord
+
+  ord2-hlf-ord:
+    url: grpc://ord2-hlf-ord:7050
+    grpcOptions:
+      ssl-target-name-override: ord2-hlf-ord
+
+  ord3-hlf-ord:
+    url: grpc://ord3-hlf-ord:7050
+    grpcOptions:
+      ssl-target-name-override: ord3-hlf-ord
+
+
+peers:
+  peer1-hlf-peer:
+    url: grpc://peer1-hlf-peer:7051
+    grpcOptions:
+      ssl-target-name-override: peer1-hlf-peer
+      grpc.keepalive_time_ms: 600000
+
+  peer2-hlf-peer:
+    url: grpc://peer2-hlf-peer:7052
+    grpcOptions:
+      ssl-target-name-override: peer2-hlf-peer
+      grpc.keepalive_time_ms: 600000
+
+  peer3-hlf-peer:
+    url: grpc://peer3-hlf-peer:7053
+    grpcOptions:
+      ssl-target-name-override: peer3-hlf-peer
+      grpc.keepalive_time_ms: 600000
+
+  peer4-hlf-peer:
+    url: grpc://peer4-hlf-peer:7054
+    grpcOptions:
+      ssl-target-name-override: peer4-hlf-peer
+      grpc.keepalive_time_ms: 600000
+
+  peer5-hlf-peer:
+    url: grpc://peer5-hlf-peer:7055
+    grpcOptions:
+      ssl-target-name-override: peer5-hlf-peer
+      grpc.keepalive_time_ms: 600000
+
+
