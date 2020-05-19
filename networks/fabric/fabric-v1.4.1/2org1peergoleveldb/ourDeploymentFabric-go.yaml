@@ -93,19 +93,19 @@ channels:
     configBinary: config/mychannel.tx
     created: false
     orderers:
-    - orderers1.svc.cluster.local
-    - orderers2.svc.cluster.local
-    - orderers3.svc.cluster.local
+    - ord1-hlf-ord
+    - ord2-hlf-ord
+    - ord3-hlf-ord
     peers:
-      peers1.svc.cluster.local:
+      peer1-hlf-peer:
         eventSource: true
-      peers2.svc.cluster.local:
+      peer2-hlf-peer:
         eventSource: true
-      peers3.svc.cluster.local:
+      peer3-hlf-peer:
         eventSource: true
-      peers4.svc.cluster.local:
+      peer4-hlf-peer:
         eventSource: true
-      peers5.svc.cluster.local:
+      peer5-hlf-peer:
         eventSource: true
 
 
