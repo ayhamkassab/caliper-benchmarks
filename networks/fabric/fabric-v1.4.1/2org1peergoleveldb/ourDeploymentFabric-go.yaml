@@ -196,28 +196,28 @@ peers:
     url: grpc://peer1-hlf-peer:7051
     grpcOptions:
       ssl-target-name-override: peer1-hlf-peer
-      grpc.keepalive_time_ms: 600000
+
 
   peer2-hlf-peer:
-    url: grpc://peer2-hlf-peer:7052
+    url: grpc://peer2-hlf-peer:7051
     grpcOptions:
       ssl-target-name-override: peer2-hlf-peer
       grpc.keepalive_time_ms: 600000
 
   peer3-hlf-peer:
-    url: grpc://peer3-hlf-peer:7053
+    url: grpc://peer3-hlf-peer:7051
     grpcOptions:
       ssl-target-name-override: peer3-hlf-peer
       grpc.keepalive_time_ms: 600000
 
   peer4-hlf-peer:
-    url: grpc://peer4-hlf-peer:7054
+    url: grpc://peer4-hlf-peer:7051
     grpcOptions:
       ssl-target-name-override: peer4-hlf-peer
       grpc.keepalive_time_ms: 600000
 
   peer5-hlf-peer:
-    url: grpc://peer5-hlf-peer:7055
+    url: grpc://peer5-hlf-peer:7051
     grpcOptions:
       ssl-target-name-override: peer5-hlf-peer
       grpc.keepalive_time_ms: 600000
