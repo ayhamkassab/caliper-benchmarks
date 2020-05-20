@@ -176,19 +176,19 @@ organizations:
 
 orderers:
   ord1-hlf-ord:
-    url: grpc://ord1-hlf-ord:7050
+    url: grpc://ord1-hlf-ord.orderers.svc.cluster.local:7050
     grpcOptions:
-      ssl-target-name-override: ord1-hlf-ord
+      ssl-target-name-override: ord1-hlf-ord.orderers.svc.cluster.local
 
   ord2-hlf-ord:
-    url: grpc://ord2-hlf-ord:7050
+    url: grpc://ord2-hlf-ord.orderers.svc.cluster.local:7050
     grpcOptions:
-      ssl-target-name-override: ord2-hlf-ord
+      ssl-target-name-override: ord2-hlf-ord.orderers.svc.cluster.local
 
   ord3-hlf-ord:
-    url: grpc://ord3-hlf-ord:7050
+    url: grpc://ord3-hlf-ord.orderers.svc.cluster.local:7050
     grpcOptions:
-      ssl-target-name-override: ord3-hlf-ord
+      ssl-target-name-override: ord3-hlf-ord.orderers.svc.cluster.local
 
 
 peers:
