@@ -110,10 +110,10 @@ channels:
 
 
     chaincodes:
-    - id: smallbank
+    - id: simple
       version: v0
       language: golang
-      path: fabric/scenario/smallbank/go
+      path: fabric/scenario/simple/go
 
 organizations:
   Org1:
