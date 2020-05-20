@@ -91,7 +91,7 @@ clients:
 channels:
   mychannel:
     configBinary: config/mychannel.tx
-    created: false
+    created: true
     orderers:
     - ord1-hlf-ord
     - ord2-hlf-ord
