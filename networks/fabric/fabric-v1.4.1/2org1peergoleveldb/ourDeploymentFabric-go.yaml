@@ -166,17 +166,19 @@ orderers:
     url: grpc://ord1-hlf-ord.orderers.svc.cluster.local:7050
     grpcOptions:
       ssl-target-name-override: ord1-hlf-ord.orderers.svc.cluster.local
+      grpc.keepalive_time_ms: 600000
 
   ord2-hlf-ord:
     url: grpc://ord2-hlf-ord.orderers.svc.cluster.local:7050
     grpcOptions:
       ssl-target-name-override: ord2-hlf-ord.orderers.svc.cluster.local
+      grpc.keepalive_time_ms: 600000
 
   ord3-hlf-ord:
     url: grpc://ord3-hlf-ord.orderers.svc.cluster.local:7050
     grpcOptions:
       ssl-target-name-override: ord3-hlf-ord.orderers.svc.cluster.local
-
+      grpc.keepalive_time_ms: 600000
 
 peers:
   peer1-hlf-peer:
