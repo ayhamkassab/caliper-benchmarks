@@ -110,11 +110,10 @@ channels:
 
 
     chaincodes:
-    - id: marbles
+    - id: smallbank
       version: v0
       language: golang
-      path: fabric/samples/marbles/go
-      metadataPath: src/fabric/samples/marbles/go/metadata
+      path: fabric/scenario/smallbank/go
 
 organizations:
   Org1:
