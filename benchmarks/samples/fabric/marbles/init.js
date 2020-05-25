@@ -36,7 +36,7 @@ module.exports.run = function() {
     let marbleOwner = owners[txIndex % owners.length];
 
     let args;
-    if (bc.getType() === 'fabric') {
+    if (bc.bcType === 'fabric') {
         args = {
             chaincodeFunction: 'initMarble',
             chaincodeArguments: [marbleName, marbleColor, marbleSize, marbleOwner],
