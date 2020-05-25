@@ -110,10 +110,14 @@ channels:
 
 
     chaincodes:
-    - id: simple
+    - id: marbles
       version: v0
       language: golang
-      path: fabric/scenario/simple/go
+      path: fabric/samples/marbles/go
+      metadataPath: src/fabric/samples/marbles/go/metadata
+
+
+organizations:
 
 organizations:
   Org1:
