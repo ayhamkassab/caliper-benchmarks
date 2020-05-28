@@ -53,12 +53,11 @@ module.exports.init = async function(blockchain, context, args) {
 };
 
 module.exports.run = function() {
-    const uuid = 'client' + clientIdx + '_' + bytesize + '_' + txIndex;
-    asset.uuid = uuid;
+    asset.uuid = 'client' + clientIdx + '_' + bytesize + '_' + txIndex;
     txIndex++;
     const myArgs = {
         chaincodeFunction: 'createAsset',
-        chaincodeArguments: [uuid, JSON.stringify(asset)]
+        chaincodeArguments: [JSON.stringify(asset)]
     };
     return bc.bcObj.invokeSmartContract(contx, chaincodeID, undefined, myArgs);
 };

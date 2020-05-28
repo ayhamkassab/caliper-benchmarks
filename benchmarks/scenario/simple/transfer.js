@@ -39,15 +39,10 @@ module.exports.run = function () {
     const account2 = account_array[Math.floor(Math.random() * (account_array.length))];
     let args;
 
-    if (bc.getType() === 'fabric') {
+    if (bc.bcType === 'fabric') {
         args = {
             chaincodeFunction: 'transfer',
             chaincodeArguments: [account1, account2, initmoney.toString()],
-        };
-    } else if (bc.getType() === 'ethereum') {
-        args = {
-            verb: 'transfer',
-            args: [account1, account2, initmoney]
         };
     } else {
         args = {
