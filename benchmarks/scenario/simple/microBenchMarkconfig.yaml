@@ -10,7 +10,7 @@ test:
   - label: open
     description: Test description for the opening of an account through the deployed chaincode
     txNumber:
-    - 1
+    - 100
     rateControl:
     - type: fixed-rate
       opts:
@@ -21,7 +21,7 @@ test:
   - label: query
     description: Test description for the query performance of the deployed chaincode
     txNumber:
-    - 1
+    - 100
     rateControl:
     - type: fixed-rate
       opts:
@@ -30,7 +30,7 @@ test:
   - label: transfer
     description: Test description for transfering money between accounts
     txNumber:
-        - 1
+        - 100
     rateControl:
         - type: fixed-rate
           opts:
