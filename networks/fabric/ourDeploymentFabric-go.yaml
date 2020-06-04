@@ -110,10 +110,10 @@ channels:
 
 
     chaincodes:
-    - id: fabcar
+    - id: simple
       version: v0
       language: golang
-      path: fabric/samples/fabcar/go
+      path: fabric/scenario/simple/go
 
 organizations:
   Org1:
