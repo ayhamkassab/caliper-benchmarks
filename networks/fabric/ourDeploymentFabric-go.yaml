@@ -19,7 +19,7 @@ mutual-tls: false
 caliper:
   blockchain: fabric
   command:
-    end: cp /hyperledger/caliper/workspace/report.html $PWD; echo $PWD; sleep 180
+    end: more /hyperledger/caliper/workspace/report.html $PWD
 
 info:
   Version: 1.4.6

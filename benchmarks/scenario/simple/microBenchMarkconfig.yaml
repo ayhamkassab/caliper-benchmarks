@@ -34,7 +34,7 @@ test:
     rateControl:
         - type: fixed-rate
           opts:
-              tps: 25
+              tps: 10
     arguments:
         money: 100
     callback: benchmarks/scenario/simple/transfer.js
