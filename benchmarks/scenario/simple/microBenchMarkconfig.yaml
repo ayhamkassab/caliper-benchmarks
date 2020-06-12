@@ -14,7 +14,7 @@ test:
     rateControl:
     - type: fixed-rate
       opts:
-        tps: 1
+        tps: 100
     arguments:
       money: 10000
     callback: benchmarks/scenario/simple/open.js
@@ -25,7 +25,7 @@ test:
     rateControl:
     - type: fixed-rate
       opts:
-        tps: 1
+        tps: 50
     callback: benchmarks/scenario/simple/query.js
   - label: transfer
     description: Test description for transfering money between accounts
@@ -34,7 +34,7 @@ test:
     rateControl:
         - type: fixed-rate
           opts:
-              tps: 1
+              tps: 25
     arguments:
         money: 100
     callback: benchmarks/scenario/simple/transfer.js

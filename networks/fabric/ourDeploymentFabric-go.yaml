@@ -18,8 +18,6 @@ mutual-tls: false
 
 caliper:
   blockchain: fabric
-  command:
-    end: sleep 180; PEER_POD=$(kubectl get pods -n peers -l "app=hlf-peer,release=peer1" -o jsonpath="{.items[0].metadata.name}"); kubectl cp -n peers $PEER_POD:/hyperledger/caliper/workspace/report.html
 
 info:
   Version: 1.4.6
