@@ -18,8 +18,6 @@ mutual-tls: false
 
 caliper:
   blockchain: fabric
-  command:
-    end: more /hyperledger/caliper/workspace/report.html $PWD
 
 info:
   Version: 1.4.6
